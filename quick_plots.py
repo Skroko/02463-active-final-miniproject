@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import csv
 import pandas as pd
+import sklearn.feature_selection as sf
 
 #%%
 
@@ -37,4 +38,16 @@ for i in range(N_vars):
     
 
 corre_matrix
+
+#%%
+# sm.mutual_info_score(data[vars[0]],data[vars[1]])
+
+mutal_score_M = np.zeros((N_vars,N_vars))
+for i in range(N_vars):
+    for j in range(N_vars):
+        x = np.array(data[vars[i]]).reshape((-1,1))
+        y = np.array(data[vars[j]])
+        mutal_score_M[i,j] = np.round(sf.mutual_info_regression(x,y),3)
+
+mutal_score_M
 
