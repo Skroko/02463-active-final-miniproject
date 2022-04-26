@@ -7,7 +7,9 @@ import sklearn.feature_selection as sf
 
 #%%
 
+# data = pd.read_csv("Data/data_566.csv")
 data = pd.read_csv("Data/data_534.csv")
+
 N_vars = 4
 vars = ["A","B","C","D"]
 
@@ -34,7 +36,7 @@ for i,ax in enumerate(axs):
 corre_matrix = np.zeros((N_vars,N_vars))
 for i in range(N_vars):
     for j in range(N_vars):
-        corre_matrix[i,j] = np.round(np.corrcoef(data[vars[i]],data[vars[j]])[0,1],3)
+        corre_matrix[i,j] = np.round(np.corrcoef(data[vars[i]]+1e-8,data[vars[j]]+1e-8)[0,1],3)
     
 
 corre_matrix
@@ -51,3 +53,11 @@ for i in range(N_vars):
 
 mutal_score_M
 
+
+
+#%%
+
+x = np.random.random(1000)*4
+# y = np.array([np.random.normal(0,xi) for xi in x])
+y = np.random.normal(0,x)
+np.round(sf.mutual_info_regression(x.reshape((-1,1)),y),3)
