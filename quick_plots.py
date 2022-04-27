@@ -57,7 +57,17 @@ mutal_score_M
 
 #%%
 
-x = np.random.random(1000)*4
-# y = np.array([np.random.normal(0,xi) for xi in x])
-y = np.random.normal(0,x)
-np.round(sf.mutual_info_regression(x.reshape((-1,1)),y),3)
+a = np.random.uniform(low = 1, high = 22,size = 1000)
+
+b = np.random.normal(np.random.random(1000)*10,a)
+
+c = np.random.uniform(low= -10, high = np.exp(b), size = 1000)
+
+d = np.random.normal(c,np.abs(np.cos(np.random.normal(22,4))))
+
+np.round(sf.mutual_info_regression(a.reshape((-1,1)),d),10)  
+
+#%%
+
+a = np.random.normal(np.random.random(1000)*10,x)
+b = np.random.uniform(low = 1, high = 22,size = 1000)
