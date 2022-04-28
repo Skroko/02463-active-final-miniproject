@@ -71,3 +71,11 @@ np.round(sf.mutual_info_regression(a.reshape((-1,1)),d),10)
 
 a = np.random.normal(np.random.random(1000)*10,x)
 b = np.random.uniform(low = 1, high = 22,size = 1000)
+
+#%%
+from scipy import stats as st
+
+a = np.random.normal(np.random.random(1000)*10,22)
+b = np.random.normal(np.random.random(1000)*10,4)
+
+st.ttest_ind(a,b)
