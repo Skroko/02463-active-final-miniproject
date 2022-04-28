@@ -75,7 +75,12 @@ b = np.random.uniform(low = 1, high = 22,size = 1000)
 #%%
 from scipy import stats as st
 
-a = np.random.normal(np.random.random(1000)*10,22)
-b = np.random.normal(np.random.random(1000)*10,4)
+a = np.random.normal(-5,10)
+b = np.cos(np.random.random(1000)*5,4)
 
-st.ttest_ind(a,b)
+
+
+# st.ttest_ind(a,b)
+# st.kstest(a,b)
+# st.ks_2samp(a,b)
+
